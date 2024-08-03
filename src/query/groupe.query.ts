@@ -28,6 +28,16 @@ export async function getAllGroupe() {
       where: {
         userId,
       },
+      select:{
+        name:true,
+        id:true,
+        Wallet:{
+          select:{
+            montant:true,
+            DorR:true
+          }
+        }
+      }
     });
     return groupes;
   } catch (error) {
