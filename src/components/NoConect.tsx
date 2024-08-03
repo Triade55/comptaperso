@@ -16,7 +16,7 @@ function NoConect() {
         <ModeToggle />
       </header>
       <div className="flex flex-col gap-3 items-center py-48 ">
-        <p>Vous n'êtes pas connecté !</p>
+        <p>Vous n&apos;&ecirc;tes pas connect&eacute; !</p>
         <Button
           onClick={() => signIn("github")}
           variant="outline"

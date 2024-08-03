@@ -6,7 +6,7 @@ import React from "react";
 type Props = {
     id :string
 }
-export default async function Sub({id}:Props) {
+export default function Sub({id}:Props) {
     const router = useRouter()
     async function handlerButton() {
         await delleteTransaction(id)

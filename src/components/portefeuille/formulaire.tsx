@@ -46,7 +46,7 @@ export function DrawerDialogDemo() {
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Ajouter d'une transaction</DialogTitle>
+            <DialogTitle>Ajouter d&apos; une transaction</DialogTitle>
             <DialogDescription>
               Ajoutez les depenses ou revenues ici, nous nous occuperons de tous. 
             </DialogDescription>
@@ -69,7 +69,7 @@ export function DrawerDialogDemo() {
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="text-left">
-          <DrawerTitle>Ajouter d'une transaction</DrawerTitle>
+          <DrawerTitle>Ajouter d&apos;une transaction</DrawerTitle>
           <DrawerDescription>
           Ajoutez les depenses ou revenues ici, nous nous occuperons de tous.
           </DrawerDescription>
