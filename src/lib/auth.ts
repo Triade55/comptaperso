@@ -29,7 +29,7 @@ export const authOptions: AuthOptions = {
       clientSecret: env.GITHUB_SECRET,
       profile(profile){
         return {
-        id:"",
+        id:profile.id.toString(),
         name:profile.name,
         email : profile.email,
         username:profile.login,
