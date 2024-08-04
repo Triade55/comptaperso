@@ -8,7 +8,7 @@ datasource db {
 }
  
 model Account {
-  id                String  @id @default(cuid())
+   id                String  @id @default(cuid())
   userId            String
   type              String
   provider          String
@@ -27,7 +27,6 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
  
   @@unique([provider, providerAccountId])
-   @@map("accounts")
 }
  
 model Session {
