@@ -73,13 +73,17 @@ CREATE TABLE "Groupe" (
 );
 
 -- CreateTable
-CREATE TABLE "Transaction" (
+CREATE TABLE "Wallet" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "name" TEXT NOT NULL,
+    "montant" INTEGER NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL,
     "groupeId" TEXT NOT NULL,
-    CONSTRAINT "Transaction_groupeId_fkey" FOREIGN KEY ("groupeId") REFERENCES "Groupe" ("id") ON DELETE CASCADE ON UPDATE CASCADE
+    "DorR" TEXT NOT NULL DEFAULT 'D',
+    "userId" TEXT NOT NULL,
+    CONSTRAINT "Wallet_groupeId_fkey" FOREIGN KEY ("groupeId") REFERENCES "Groupe" ("id") ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT "Wallet_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- CreateTable
@@ -106,6 +110,9 @@ CREATE UNIQUE INDEX "Authenticator_credentialID_key" ON "Authenticator"("credent
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Groupe_name_key" ON "Groupe"("name");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "VerificationRequest_token_key" ON "VerificationRequest"("token");
