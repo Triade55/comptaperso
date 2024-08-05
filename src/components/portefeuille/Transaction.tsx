@@ -10,7 +10,7 @@ export default function Transaction({ transaction }: Props) {
     <>
       {transaction && (
         <Link href={`/${transaction?.id}`} className="">
-          <div className="w-full flex items-center justify-between p-3 border-b-8 border-blue-400 dark:border-blue-900">
+          <div className="w-full flex items-center justify-between p-5 border-b-8 border-blue-400 dark:border-blue-900">
             <div className="flex flex-col gap-2 text-xl">
               {transaction?.name}
               <div className="text-sm italic ">

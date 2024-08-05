@@ -25,6 +25,16 @@ function NoConect() {
           Se connecter avec GitHub
           <LogInIcon />
         </Button>
+        
+        <Button
+          onClick={() => signIn("github")}
+          variant="outline"
+          className="flex gap-1"
+        >
+          Se connecter avec GitHub
+          <LogInIcon />
+        </Button>
+
       </div>
     </>
   );

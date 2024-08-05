@@ -13,7 +13,11 @@ type props = {
   transactionData: transactiondata[];
 };
 export async function getAlltransactions() {
+  const user = await getUser();
   const transaction = await prisma.wallet.findMany({
+    where: {
+      user:user
+    },
     select: {
       id: true,
       createdAt: true,

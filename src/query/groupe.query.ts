@@ -96,6 +96,7 @@ export async function getGroupeById(id: string) {
   }
 }
 export async function putGroupe(id: string,name:string) {
+
   try {
     const groupe = await prisma.groupe.update({
       where: {

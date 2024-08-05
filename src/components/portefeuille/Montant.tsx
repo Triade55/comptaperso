@@ -22,8 +22,8 @@ export default async function Montant() {
 
   return (
     <>
-      <div className={clsx(somme < 0 && "text-red-600")}>{getMontantInCFA(somme,false)}</div>
-      <sub className={clsx(somme < 0 && "text-red-600","flex text-2xl items-end gap-3")}>
+      <div className={clsx(somme < 0 && "text-red-500 dark:text-red-900",somme>1000 && "text-green-400 dark:text-green-900")}>{getMontantInCFA(somme,false)}</div>
+      <sub className={clsx(somme < 0 && "text-red-500 dark:text-red-900",somme>1000 && "text-green-400 dark:text-green-900","flex text-2xl items-end gap-3")}>
         F <EyeOff />
       </sub>
     </>

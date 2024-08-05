@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn, getMontantInCFA } from "@/lib/utils";
 import { GroupeById, GroupeById2 } from "@/query/groupe.query";
 import { Edit, Trash } from "lucide-react";
 import Link from "next/link";
@@ -23,7 +23,7 @@ function Groupe({ groupe }: Props) {
     <div className="flex justify-between items-start p-6  border-y-2  dark:border-black border-white ">
       <div className="text-2xl gap-3">
         {groupe?.name}
-        <div className="italic text-sm text-gray-500 pt-1">{total}</div>
+        <div className="italic text-sm text-gray-500 pt-1">{getMontantInCFA(total)}</div>
       </div>
       <div className="flex gap-2">
         <Link

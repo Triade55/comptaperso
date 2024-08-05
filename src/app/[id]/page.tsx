@@ -10,12 +10,15 @@ import {
   Trash,
 } from "lucide-react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 export default async function page({ params }: { params: { id: string } }) {
   const id = params.id;
   const transaction = await getTransaction(id.toString());
+  if (!transaction) {
+    notFound()
+  }
 
   return (
     <>

@@ -1,8 +1,10 @@
 import GithubProvider from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
 import { env } from "./env";
 import { AuthOptions, DefaultSession, getServerSession } from "next-auth";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "./prisma";
+import createDefaultGroupe from "./defaultgroupe";
 declare module "next-auth" {
   /**
    * Returned by `auth`, `useSession`, `getSession` and received as a prop on the `SessionProvider` React Context
@@ -36,15 +38,26 @@ export const authOptions: AuthOptions = {
         }
       }
     }),
+    GoogleProvider({
+      clientId: env.GOOGLE_CLIENT_ID,
+      clientSecret: env.GOOGLE_CLIENT_SECRET
+    })
     // ...add more providers here
   ],
   callbacks: {
-    session({ session, user }) {
+    async session({ session, user }) {
       if (!session?.user) {
         return session
       }
     session.user.id = user.id;
       return session;
+    },async signIn({user, account, profile}) {
+      const userId = user.id
+     createDefaultGroupe({userId})
+
+
+
+      return true
     },
   },
   secret:process.env.NEXTAUTH_SECRET

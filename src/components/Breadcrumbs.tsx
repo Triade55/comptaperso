@@ -10,6 +10,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { usePathname } from "next/navigation";
+import SousBread from "./SousBread";
 
 export function BreadcrumbWithCustomSeparator() {
   const routeur = usePathname();
@@ -23,22 +24,7 @@ export function BreadcrumbWithCustomSeparator() {
         <Breadcrumb className="px-6 py-3 mb-2 bg-white dark:bg-black w-full">
           <BreadcrumbList>
             {h.map((d, index) => (
-              <>
-                <BreadcrumbItem>
-                  <BreadcrumbLink
-                    href={
-                      index > 0
-                        ? `/${segments.slice(1, index + 1).join("/")}`
-                        : "/"
-                    }
-                  >
-                    {d === "Home" ? <Home /> : d}
-                  </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator>
-                  <Slash />
-                </BreadcrumbSeparator>
-              </>
+              <SousBread index={index} d={d} segments={segments} key={index}/>
             ))}
             <BreadcrumbItem>
               <BreadcrumbPage>{lastSegment} </BreadcrumbPage>
